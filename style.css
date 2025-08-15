@@ -1,0 +1,51 @@
+body{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(75deg, #6a11cb 0%, #2575fc 100%);
+    display: flex;
+
+    align-items: center;
+    flex-direction: column;
+    color: aliceblue;
+    min-height: 100vh;
+    padding: 40px;
+}
+h1{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    font-size: 4rem;
+    background: linear-gradient(75deg, #965e8860 0%, #6b508870 100%);
+    /* background-color: rgba(158, 83, 83, 0.103); */
+    border-radius: 20px;
+    padding: 10px 20px
+}
+h1 i{
+    top: 20px;
+    font-size: 50px;
+}
+.task{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 40px 10px 40px 10px;
+    gap: 5px
+}
+.task input{
+    padding: 10px 20px;
+    border-radius: 10px;
+    border-color: black;
+    border: none;
+    font-size: 20px;
+
+}
+.task button{
+    align-items: center;
+    background-color: #e597b8;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+
+}

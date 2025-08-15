@@ -23,6 +23,8 @@ addtk.addEventListener('click', function(){
     tasklist.appendChild(li);
     inputuser.value="";
 
+    saving();
+
 });
 
 tasklist.addEventListener("click", function(e){
