@@ -101,4 +101,29 @@ function saving(){
 
 
 }
+function loadtasks(){
+    let saved = localStorage.getItem('tasks')
+    if(!saved){return;}
+    let savedTasks= JSON.parse(saved);
+    savedTasks.forEach(function(e){
+        //text/completed
+        const li = document.createElement("li");
+        li.classList.add('eachtask');
+
+        if(e.completed){
+            li.classList.add('completed');
+            
+        }
+        li.innerHTML=  `
+            <input type="checkbox" class="tomark" ${e.completed ? 'checked' : ''}>
+            <span class="txtask">${e.text}</span>
+            <button class="edit">Edit</button>
+            <button class="delete">Delete</button>
+
+        `;
+        tasklist.appendChild(li);
+    });
+}
+//function  {}
+window.onload = loadtasks;
 
