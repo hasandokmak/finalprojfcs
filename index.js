@@ -32,5 +32,32 @@ tasklist.addEventListener("click", function(e){
 
     }else if(ww.contains('tomark')){
         e.target.parentElement.classList.toggle('completed');
+    }else if(ww.contains('edit')){
+        const span = e.target.previousElementSibling;
+        const originaltext = span.textContent;
+
+        const input = document.createElement('input');
+        input.type='text';
+        input.value=originaltext;
+        span.replaceWith(input);
+        input.focus();
+        
+        // input.addEventListener('', function() {}
+        //const span
+        
+
+        input.addEventListener('blur', function(){
+            const anotherspan = document.createElement('span');
+            anotherspan.classList.add('txtask');
+            anotherspan.textContent = input.value   ;
+            input.replaceWith(anotherspan);
+        });
+        input.addEventListener('keypress', function(e){
+            if (e.key === 'Enter'){
+                input.blur();
+            }
+        });
+        
+
     }
 });
