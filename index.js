@@ -29,9 +29,11 @@ tasklist.addEventListener("click", function(e){
     const ww = e.target.classList;
     if(ww.contains('delete')){
         e.target.parentElement.remove();
+        saving()
 
     }else if(ww.contains('tomark')){
         e.target.parentElement.classList.toggle('completed');
+        saving()
     }else if(ww.contains('edit')){
         const span = e.target.previousElementSibling;
         const originaltext = span.textContent;
@@ -51,6 +53,8 @@ tasklist.addEventListener("click", function(e){
             anotherspan.classList.add('txtask');
             anotherspan.textContent = input.value   ;
             input.replaceWith(anotherspan);
+            saving()
+
         });
         input.addEventListener('keypress', function(e){
             if (e.key === 'Enter'){
@@ -61,3 +65,40 @@ tasklist.addEventListener("click", function(e){
 
     }
 });
+
+
+const filterbuttons = document.querySelectorAll(".filters button");
+filterbuttons.forEach(function(btn) {
+    btn.addEventListener('click', function() {
+        const tasks = document.querySelectorAll('.eachtask');
+
+        tasks.forEach(function(task) {
+            if (btn.classList.contains('filterAll')) {
+                task.style.display = '';
+            } 
+            else if (btn.classList.contains('filterCompleted')) {
+                task.style.display = task.classList.contains('completed') ? '' : 'none';
+            } 
+            else if (btn.classList.contains('filterPending')) {
+                task.style.display = !task.classList.contains('completed') ? '' : 'none';
+            }
+        });
+    });
+});
+
+
+function saving(){
+    const tasks = []
+    for (const task of document.querySelectorAll('.eachtask')) {
+
+        const obj  = {};
+        obj.text = task.querySelector('.txtask').textContent;
+        obj.completed = task.classList.contains('completed');
+        tasks.push(obj);
+
+    }
+    localStorage.setItem('tasks', JSON.stringify(tasks));
+
+
+}
+
