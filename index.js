@@ -24,3 +24,13 @@ addtk.addEventListener('click', function(){
     inputuser.value="";
 
 });
+
+tasklist.addEventListener("click", function(e){
+    const ww = e.target.classList;
+    if(ww.contains('delete')){
+        e.target.parentElement.remove();
+
+    }else if(ww.contains('tomark')){
+        e.target.parentElement.classList.toggle('completed');
+    }
+});
