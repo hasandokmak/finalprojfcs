@@ -106,6 +106,7 @@ h1 i{
     list-style: none;
      width: 100%;
     max-width: 500px;
+    display: block;
 }
 .eachtask {
     display: flex;
@@ -117,6 +118,7 @@ h1 i{
     margin-bottom: 10px;
     border-radius: 6px;
     transition: transform 0.3s ease;
+    width: 100%;
 
   
 }
@@ -143,4 +145,45 @@ h1 i{
 }
 .delete:hover{
     background-color:  #dd3f00 ;
+}
+
+
+
+/* //tomark style */
+.edit-box {
+    flex: 1;
+    padding: 6px 10px;
+    font-size: 16px;
+    border-radius: 6px;
+    border: none;
+    background-color: rgba(255, 255, 255, 0.15);
+    color: white;
+    transition: all 0.2s ease;
+}
+
+.edit-box:focus {
+    background-color:  rgba(255, 255, 255, 0.384) ;
+    outline: none;
+}
+
+.tomark {
+    width: 20px;
+    height: 20px;
+    accent-color: #054b11; /* modern browsers */
+    cursor: pointer;
+    transform: scale(1.2); /* make it bigger */
+}
+
+
+
+
+.completed{
+    opacity: 0.4;
+    transition: opacity 0.4s ease;
+}
+.completed .txtask{
+    text-decoration: line-through;
+    color: rgba(255, 255, 255, 0.308);
+    transition: color 0.3s ease, text-decoration-color 0.3s ease;
+
 }

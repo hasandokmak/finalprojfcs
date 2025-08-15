@@ -43,6 +43,7 @@ tasklist.addEventListener("click", function(e){
         const input = document.createElement('input');
         input.type='text';
         input.value=originaltext;
+         input.classList.add('edit-box');
         span.replaceWith(input);
         input.focus();
         
